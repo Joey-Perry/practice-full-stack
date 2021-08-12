@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 
-const { PORT, CONNECTION_STRING } = process.env;
+const { CONNECTION_STRING } = process.env;
 
 const { getHeroes } = require('./controller.js');
 
@@ -26,4 +26,4 @@ app.get('/api/heroes', getHeroes);
 
 
 
-app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
+app.listen(process.env.PORT || 5000, () => console.log(`Listening on port: ${PORT}`));

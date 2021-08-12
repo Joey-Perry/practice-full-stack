@@ -12,13 +12,20 @@ class App extends Component{
   }
 
   getHeroes = () => {
-    
+    axios.get('/api/heroes')
+      .then(res => {
+        console.log(res);
+      }).catch(err => {
+        console.log(err);
+      })
   }
 
   render(){
     return (
       <div className='App'>
         Hello World
+        <h1>Get Data</h1>
+        <button onClick={this.getHeroes}>GET</button>
       </div>
     )
   }

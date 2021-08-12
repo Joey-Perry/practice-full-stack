@@ -22,8 +22,11 @@ massive({
 
 // ENDPOINTS
 
-app.get('/api/heroes', getHeroes);
+app.get('/api/heroes', (req, res) => {
+    console.log(req);
+    res.status(200).send("I'm connected!");
+});
 
 
 
-app.listen(process.env.PORT || 5000, () => console.log(`Listening on port: ${PORT}`));
+app.listen(process.env.PORT || 5000, () => console.log(`Listening on port: ${process.env.PORT}`));

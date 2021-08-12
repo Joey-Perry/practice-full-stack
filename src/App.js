@@ -12,7 +12,7 @@ class App extends Component{
   }
 
   getHeroes = () => {
-    axios.get('http://')
+    
   }
 
   render(){

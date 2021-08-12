@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 massive({
-    connectionString: CONNECTION_STRING,
+    connectionString: DATABASE_URL,
     ssl: { rejectUnauthorized: false }
 }).then(db => {
     app.set('db', db);
@@ -23,7 +23,10 @@ massive({
 
 // ENDPOINTS
 
-app.get('/api/heroes', getHeroes);
+app.get('/api/heroes', (req, res) => {
+    console.log(req);
+    res.status(200).send(`I'm connected to the endpoint!`);
+});
 
 
 

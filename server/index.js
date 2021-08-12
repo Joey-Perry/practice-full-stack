@@ -3,6 +3,7 @@ const express = require('express');
 const massive = require('massive');
 
 const { CONNECTION_STRING } = process.env;
+const PORT = process.env.PORT || 5000;
 
 const { getHeroes } = require('./controller.js');
 
@@ -24,7 +25,7 @@ massive({
 
 app.get('/api/heroes', (req, res) => {
     console.log(req);
-    res.status(200).send("I'm connected!");
+    res.status(200).send(`I'm connected on port ${PORT}!`);
 });
 
 

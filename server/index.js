@@ -20,13 +20,13 @@ massive({
 }).catch(err => {
     console.log(process.env.DATABASE_URL)
     console.log(`Error connecting to DB: ${err}`);
-})
+});
 
 // ENDPOINTS
 
 app.get('/api/heroes', (req, res) => {
     console.log(req);
-    res.status(200).send(`I'm connected to the endpoint!`);
+    getHeroes();
 });
 
 

@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 massive({
-    connectionString: DATABASE_URL,
+    connectionString: CONNECTION_STRING,
     ssl: { rejectUnauthorized: false }
 }).then(db => {
     app.set('db', db);
@@ -23,10 +23,7 @@ massive({
 
 // ENDPOINTS
 
-app.get('/api/heroes', (req, res) => {
-    console.log(req);
-    res.status(200).send(`I'm connected on port ${PORT}!`);
-});
+app.get('/api/heroes', getHeroes);
 
 
 

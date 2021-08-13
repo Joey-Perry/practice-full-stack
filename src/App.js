@@ -27,7 +27,7 @@ class App extends Component{
         <h1>Get Data</h1>
         <button onClick={this.getHeroes}>GET</button>
         <ul>
-          {this.state.map(heroes => {
+          {this.state.data.map(heroes => {
             <li key={heroes.id}><h2>{heroes.name}</h2></li>
           })}
         </ul>

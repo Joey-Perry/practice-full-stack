@@ -22,7 +22,7 @@ massive({
 });
 
 // ENDPOINTS
-
+app.get('/', ()=> console.log('Default page...'));
 app.get('/api/heroes', getHeroes);
 
 

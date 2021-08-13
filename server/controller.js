@@ -1,6 +1,6 @@
 const getHeroes = (req, res) => {
     const db = req.app.get('db');
-    console.log("I'm searching the database...");
+    console.log(`I'm searching the database...${db}`);
     db.get_heroes()
         .then(heroes => res.status(200).send(heroes))
         .catch(err => {

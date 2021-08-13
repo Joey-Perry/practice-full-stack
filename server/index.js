@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 massive({
-    connectionString: CONNECTION_STRING,
+    connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false }
 }).then(db => {
     app.set('db', db);

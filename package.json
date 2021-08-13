@@ -31,6 +31,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "https://practice-full-stack-01.herokuapp.com",
   "browserslist": {
     "production": [
       ">0.2%",

@@ -10,7 +10,7 @@ const { CONNECTION_STRING } = process.env;
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(express.static('build'));
+app.use(express.static('/build'));
 
 massive({
     connectionString: process.env.DATABASE_URL,

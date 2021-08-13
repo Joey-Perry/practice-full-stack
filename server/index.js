@@ -1,20 +1,20 @@
 require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
+const app = express();
+const { getHeroes } = require('./controller.js');
+
+
 
 const { CONNECTION_STRING } = process.env;
 const PORT = process.env.PORT || 5000;
-
-const { getHeroes } = require('./controller.js');
-
-const app = express();
 
 app.use(express.json());
 
 massive({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false }
-}).then(db => {
+}).then((db) => {
     app.set('db', db);
     console.log('DB connection established successfully!');
 }).catch(err => {

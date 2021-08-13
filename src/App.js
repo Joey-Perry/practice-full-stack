@@ -29,7 +29,7 @@ class App extends Component{
         <button onClick={this.getHeroes}>GET</button>
         <ul>
           {this.state.data.map(heroes => {
-            <li key={heroes.id}><h2>{heroes.name}</h2></li>
+            return <li key={heroes.id}><h2>{heroes.name}</h2></li>
           })}
         </ul>
       </div>

@@ -18,7 +18,6 @@ massive({
     app.set('db', db);
     console.log('DB connection established successfully!');
 }).catch(err => {
-    console.log(process.env.DATABASE_URL)
     console.log(`Error connecting to DB: ${err}`);
 });
 

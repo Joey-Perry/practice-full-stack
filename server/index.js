@@ -24,9 +24,7 @@ massive({
 });
 
 // ENDPOINTS
-app.get('/', (req, res) => {
-    res.sendFile(path.join('../build', 'index.html'));
-});
+
 app.get('/api/heroes', getHeroes);
 
 

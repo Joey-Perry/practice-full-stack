@@ -14,7 +14,8 @@ class App extends Component{
   getHeroes = () => {
     axios.get('/api/heroes')
       .then(res => {
-        this.setState({ data: res.data })
+        console.log(res.data);
+        this.setState({ data: res.data });
       }).catch(err => {
         console.log(err);
       })

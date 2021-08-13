@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const app = express();
+const path = require('path');
 const { getHeroes } = require('./controller.js');
 
 
@@ -10,7 +11,7 @@ const { CONNECTION_STRING } = process.env;
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(express.static('/build'));
+app.use(express.static(path.join(__dirname, 'build')));
 
 massive({
     connectionString: process.env.DATABASE_URL,
@@ -23,7 +24,9 @@ massive({
 });
 
 // ENDPOINTS
-// app.get('/', ()=> console.log('Default page...'));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.get('/api/heroes', getHeroes);
 
 

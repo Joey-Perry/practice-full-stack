@@ -14,7 +14,7 @@ class App extends Component{
   getHeroes = () => {
     axios.get('/api/heroes')
       .then(res => {
-        console.log(res);
+        this.setState({ data: res.data })
       }).catch(err => {
         console.log(err);
       })
@@ -26,6 +26,11 @@ class App extends Component{
         Hello World
         <h1>Get Data</h1>
         <button onClick={this.getHeroes}>GET</button>
+        <ul>
+          {this.state.map(heroes => {
+            <li key={heroes.id}><h2>{heroes.name}</h2></li>
+          })}
+        </ul>
       </div>
     )
   }

@@ -23,10 +23,7 @@ massive({
 
 // ENDPOINTS
 
-app.get('/api/heroes', (req, res) => {
-    console.log(req);
-    getHeroes();
-});
+app.get('/api/heroes', getHeroes);
 
 
 
